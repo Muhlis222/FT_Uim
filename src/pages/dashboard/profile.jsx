@@ -25,7 +25,7 @@ import { platformSettingsData, conversationsData, projectsData } from "@/data";
 export function Profile() {
   return (
     <>
-      <h1 className="text-3xl font-bold">Halaman Profile</h1>
+      <h1 className="text-3xl font-bold">Halaman Profile iqbal</h1>
     </>
   );
 }

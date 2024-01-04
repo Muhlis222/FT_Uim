@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "@/context";
+import ft_uim from "../../../public/img/ft_uim.png";
 
 export function Sidenav({ brandImg, brandName, routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
@@ -21,16 +22,17 @@ export function Sidenav({ brandImg, brandName, routes }) {
   return (
     <aside
       className={`${sidenavTypes[sidenavType]} ${openSidenav ? "translate-x-0" : "-translate-x-80"
-        } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-blue-gray-100`}
+        } fixed inset-0 z-50 my-4 overflow-auto ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-blue-gray-100 drop-shadow-2xl`}
     >
-      <div
-        className={`relative`}
-      >
-        <Link to="/" className="py-6 px-8 text-center">
+      <div className={`relative bg-blue-gray-300 flex items-center justify-center`}>
+        <Link to="/" className="py-4 px-8 text-center">
           <Typography
             variant="h6"
             color={sidenavType === "dark" ? "white" : "blue-gray"}
           >
+            <div className="flex items-center mb-2">
+              <img src={ft_uim} alt="logo" className="w-12" />
+            </div>
             {brandName}
           </Typography>
         </Link>
@@ -42,9 +44,10 @@ export function Sidenav({ brandImg, brandName, routes }) {
           className="absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"
           onClick={() => setOpenSidenav(dispatch, false)}
         >
-          <XMarkIcon strokeWidth={2.5} className="h-5 w-5 text-white" />
+          <XMarkIcon strokeWidth={2.5} className="h-5 w-5 text-black" />
         </IconButton>
       </div>
+
       <div className="m-4">
         {routes.map(({ layout, title, pages }, key) => (
           <ul key={key} className="mb-4 flex flex-col gap-1">
@@ -95,7 +98,6 @@ export function Sidenav({ brandImg, brandName, routes }) {
 }
 
 Sidenav.defaultProps = {
-  brandImg: "/img/logo-ct.png",
   brandName: "FT Uim",
 };
 
