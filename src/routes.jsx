@@ -5,8 +5,9 @@ import {
   InformationCircleIcon,
   ServerStackIcon,
   RectangleStackIcon,
+  NewspaperIcon
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Notifications, Berita } from "@/pages/dashboard";
 import { SignIn, SignUp } from "./pages/auth";
 
 const icon = {
@@ -31,10 +32,10 @@ export const routes = [
         element: <Profile />,
       },
       {
-        icon: <TableCellsIcon {...icon} />,
+        icon: <NewspaperIcon {...icon} />,
         name: "Berita",
-        path: "/tables",
-        element: <Tables />,
+        path: "/Berita",
+        element: <Berita />,
       },
       {
         icon: <InformationCircleIcon {...icon} />,
